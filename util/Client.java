@@ -19,23 +19,28 @@ public class Client {
         System.out.println("account number: ");
         this.number = sc.nextInt();
 
+        int count = 0;
+        while(count == 0){
 
-        System.out.println("will there be initial transaction? (y/n)");
-        String response = sc.nextLine();
+            System.out.println("will there be initial transaction? (y/n)");
+            String response = sc.next();
 
-        if(response == "y"){
-            this.quantity = 0;
-            System.out.println("Accont: " + this.number + ", Holder: " + this.name + ", Balance: " + this.quantity);
+            if(response.equals("n")){
+                this.quantity = 0;
+                System.out.println("Accont: " + this.number + ", Holder: " + this.name + ", Balance: " + this.quantity);
+                count = 1;
 
-        }
-        else if(response == "n"){
-            System.out.println("how much will you deposit?");
-            this.quantity = sc.nextDouble();
-            System.out.println("Accont: " + this.number + ", Holder: " + this.name + ", Balance: " + this.quantity);
+            }
+            else if(response.equals("y")){
+                System.out.println("how much will you deposit?");
+                this.quantity = sc.nextDouble();
+                System.out.println("Accont: " + this.number + ", Holder: " + this.name + ", Balance: " + this.quantity);
+                count = 1;
 
-        }
-        else{
-            System.out.println("please enter a valid answer");
+            }
+            else{
+                System.out.println("please enter a valid answer");
+            }
         }
     }
 
@@ -57,28 +62,17 @@ public class Client {
         this.quantity = quantity;
     }
 
-    public double deposit(double value){
+    public double Deposit(double value){
         this.quantity = this.quantity + value;
         System.out.println("Accont: " + this.number + ", Holder: " + this.name + ", Balance: " + this.quantity);
         return this.quantity;
     }
 
-    public double withdraw(double value){
+    public double Withdraw(double value){
         this.quantity = this.quantity - value -5;
         System.out.println("Accont: " + this.number + ", Holder: " + this.name + ", Balance: " + this.quantity);
         return this.quantity;
     }
 
-
-
-
-    public String toString() {
-        return name
-                + ", $ "
-                + String.format("%.2f", number)
-                + ", "
-                + quantity
-                + " units, Total: $ "
-                + String.format("%.2f", totalValueInStock());
-    }
 }
+

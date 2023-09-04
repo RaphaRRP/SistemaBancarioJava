@@ -10,7 +10,11 @@ public class Program {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        Client client = new Client("pedro", 1234, 2000);
+        Client client = new Client();
+
+        client.Deposit(100);
+
+        client.Withdraw(200);
         
 
 
